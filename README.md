@@ -121,7 +121,7 @@ Demo Video:
 
 ### Repository Used for Demo
 
-This prototype was tested on: ***Akash504-ai/Hiero-workflow-demo***
+This prototype was tested on: ***[Akash504-ai/Hiero-workflow-demo](https://github.com/Akash504-ai/Hiero-workflow-demo)***
 
 
 ## How to Run
@@ -207,4 +207,5 @@ This prototype demonstrates a practical approach to building a configurable and 
 Author
 
 Akash Santra
-GitHub: https://github.com/Akash504-ai
+
+GitHub: [https://github.com/Akash504-ai](https://github.com/Akash504-ai)

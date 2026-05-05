@@ -1,8 +1,7 @@
 /**
  * webhook.js
  *
- * This module acts as the central orchestrator for processing incoming
- * GitHub webhook events. It coordinates all major components of the system:
+ * This module acts as the central orchestrator for processing incoming GitHub webhook events. It coordinates all major components of the system:
  *
  * - Configuration loading
  * - Rule evaluation

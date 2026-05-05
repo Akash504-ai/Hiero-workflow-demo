@@ -1,0 +1,29 @@
+{
+  "name": "hiero-workflow-app",
+  "version": "1.0.0",
+  "description": "Config-driven GitHub App for automating maintainer workflows (Hiero mentorship prototype)",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "github-app",
+    "automation",
+    "workflow-engine",
+    "hiero",
+    "rule-engine"
+  ],
+  "author": "Akash Santra",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/webhooks": "^14.2.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "yaml": "^2.8.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

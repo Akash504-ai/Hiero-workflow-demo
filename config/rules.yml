@@ -1,0 +1,6 @@
+rules:
+  - condition: "new_contributor"
+    action: "comment_welcome"
+
+  - condition: "no_assignee"
+    action: "assign_default_reviewer"

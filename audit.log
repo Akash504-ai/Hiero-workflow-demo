@@ -1,0 +1,1 @@
+{"event":"pull_request.opened","repository":{"name":"demo/repo"},"actor":{"username":"test-user","association":"NONE"},"context":{"pr_number":null,"has_assignees":false},"decision":{"actions":["comment_welcome","assign_default_reviewer"],"reason":"matched configured rules"},"metadata":{"timestamp":"2026-05-05T11:41:31.688Z","source":"hiero-workflow-app","mode":"live"}}

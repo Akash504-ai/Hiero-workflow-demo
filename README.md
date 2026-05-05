@@ -6,7 +6,7 @@ The system demonstrates a scalable architecture where repository events are proc
 
 ---
 
-## Objectives
+## Objectives 
 
 - Reduce manual coordination tasks for maintainers
 - Provide consistent and configurable automation across repositories

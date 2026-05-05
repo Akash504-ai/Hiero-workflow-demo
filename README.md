@@ -19,9 +19,70 @@ The system demonstrates a scalable architecture where repository events are proc
 
 ## Architecture
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/8ced3be5-54d9-4ff5-a74a-22e171cbc127" width="300"/>
-</p>
+```mermaid
+graph TD
+
+%% ================= INGRESS =================
+subgraph INGRESS ["Ingress Layer"]
+G1[GitHub Webhook Event]
+G2[API Gateway / Webhook Service]
+end
+
+%% ================= QUEUE =================
+subgraph QUEUE ["Event Streaming"]
+Q1[Message Queue Kafka / Redis Streams]
+end
+
+%% ================= PROCESSING =================
+subgraph PROCESSING ["Core Processing"]
+P1[Event Processor Workers]
+P2[Config Service]
+P3[Rule Engine]
+P4[Decision Output]
+end
+
+%% ================= ACTION =================
+subgraph ACTION ["Action Pipeline"]
+A1[Action Queue]
+A2[Action Workers]
+A3[GitHub API]
+end
+
+%% ================= DATA =================
+subgraph DATA ["Data Layer"]
+D1[(PostgreSQL Config DB)]
+D2[(Redis Cache)]
+end
+
+%% ================= OBSERVABILITY =================
+subgraph OBS ["Observability"]
+O1[Audit Logger]
+O2[Log Storage]
+O3[Monitoring Prometheus / Grafana]
+end
+
+%% ================= FLOW =================
+
+G1 --> G2
+G2 --> Q1
+
+Q1 --> P1
+P1 --> P2
+P2 --> D1
+P2 --> D2
+
+P1 --> P3
+P3 --> P4
+
+P4 --> A1
+A1 --> A2
+A2 --> A3
+
+P1 --> O1
+A2 --> O1
+O1 --> O2
+O2 --> O3
+```
 
 
 

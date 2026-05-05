@@ -2,7 +2,7 @@ import fs from "fs";
 
 const LOG_FILE = "audit.log";
 
-// 🎯 Main logger
+//  Main logger
 export function logDecision(event, actions) {
   const logEntry = buildLogEntry(event, actions);
 
@@ -12,10 +12,10 @@ export function logDecision(event, actions) {
   persistLog(logEntry);
 }
 
-// 🧠 Build structured log
+//  Build structured log
 function buildLogEntry(event, actions) {
   return {
-    id: generateLogId(), // 🔥 unique log id (important)
+    id: generateLogId(), //  unique log id (important)
 
     event: "pull_request.opened",
 
@@ -29,7 +29,7 @@ function buildLogEntry(event, actions) {
     },
 
     context: {
-      pr_number: event.pull_request?.number ?? "N/A", // ✅ better fallback
+      pr_number: event.pull_request?.number ?? "N/A", //  better fallback
       has_assignees: (event.pull_request?.assignees?.length || 0) > 0,
     },
 
@@ -46,7 +46,7 @@ function buildLogEntry(event, actions) {
   };
 }
 
-// 🧠 Better reasoning (this is a key improvement)
+//  Better reasoning (this is a key improvement)
 function deriveReason(actions) {
   if (!actions || actions.length === 0) {
     return "no rules matched";
@@ -55,12 +55,12 @@ function deriveReason(actions) {
   return `matched rules: ${actions.join(", ")}`;
 }
 
-// 🆔 Generate unique log id
+//  Generate unique log id
 function generateLogId() {
   return `log_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
 }
 
-// 💾 Persist log
+//  Persist log
 function persistLog(logEntry) {
   try {
     fs.appendFileSync(LOG_FILE, JSON.stringify(logEntry) + "\n");

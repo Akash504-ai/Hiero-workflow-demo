@@ -1,6 +1,4 @@
-# Hiero Workflow Automation Prototype
- 
-## Overview 
+ ## Overview 
 
 This project is a prototype of a configurable automation system for GitHub repository workflows. It is designed to reduce maintainer overhead by automating repetitive tasks such as contributor onboarding, pull request handling, and workflow enforcement.
 
@@ -185,14 +183,24 @@ A demonstration of the system includes:
 ### 📸 Demo Walkthrough
 
 ### PR before img
+<img width="1892" height="913" alt="Screenshot 2026-05-05 194919" src="https://github.com/user-attachments/assets/def4a0ab-95fd-4ec8-a97a-8e0f57fd4d84" />
+
 
 ### First terminal img 
+<img width="1054" height="646" alt="Screenshot 2026-05-05 194940" src="https://github.com/user-attachments/assets/ffa55a74-f66e-4a1b-be30-77b1917d2aa5" />
+
 
 ### second terminal img
+<img width="1054" height="852" alt="Screenshot 2026-05-05 195157" src="https://github.com/user-attachments/assets/27a41d4c-feb1-4748-9059-f771a860b67a" />
 
-### First termianl img anain
+
+### First termianl img again (after img)
+<img width="1059" height="1002" alt="Screenshot 2026-05-05 195213" src="https://github.com/user-attachments/assets/7f7e3f83-e9a2-4545-aecd-11122a603651" />
+
 
 ### PR screen after img
+<img width="1725" height="816" alt="image" src="https://github.com/user-attachments/assets/15e08e1d-6ff3-4e37-b066-900a2a99aa32" />
+
 
 ### Repository Used for Demo
 

@@ -175,11 +175,6 @@ A demonstration of the system includes:
 - Automatic comment on a real GitHub pull request
 - Audit log generation
 
-### 🎥 Video Demo
-(Add your video link here)
-
----
-
 ### 📸 Demo Walkthrough
 
 ### PR before img

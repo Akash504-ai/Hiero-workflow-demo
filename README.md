@@ -19,7 +19,9 @@ The system demonstrates a scalable architecture where repository events are proc
 
 ## Architecture
 
-<img width="202" height="571" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/8ced3be5-54d9-4ff5-a74a-22e171cbc127" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8ced3be5-54d9-4ff5-a74a-22e171cbc127" width="300"/>
+</p>
 
 
 

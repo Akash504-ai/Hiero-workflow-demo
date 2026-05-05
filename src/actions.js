@@ -1,9 +1,7 @@
 /**
  * actions.js
  *
- * This module is responsible for executing actions determined by the rule engine.
- * It acts as the "execution layer" of the system, taking decisions (e.g., comment on PR,
- * assign reviewer) and performing them using the GitHub API.
+ * This module is responsible for executing actions determined by the rule engine. It acts as the "execution layer" of the system, taking decisions (e.g., comment on PR, assign reviewer) and performing them using the GitHub API.
  *
  * Key Responsibilities:
  * - Normalize incoming event data into a consistent context object

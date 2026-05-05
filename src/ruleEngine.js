@@ -2,17 +2,30 @@ export function evaluateRules(event, config) {
   const decisions = [];
 
   for (const rule of config.rules) {
-    if (rule.condition === "new_contributor") {
-      // simple mock logic
-      if (!event.pull_request?.author_association || event.pull_request.author_association === "NONE") {
-        decisions.push(rule.action);
-      }
+    // Always trigger (for demo mode)
+    if (rule.condition === "always") {
+      decisions.push(rule.action);
+      continue;
     }
 
-    if (rule.condition === "no_assignee") {
-      if (!event.pull_request.assignees.length) {
+    // New contributor
+    if (rule.condition === "new_contributor") {
+      const association = event.pull_request?.author_association;
+
+      if (!association || association === "NONE") {
         decisions.push(rule.action);
       }
+      continue;
+    }
+
+    // No assignee
+    if (rule.condition === "no_assignee") {
+      const assignees = event.pull_request?.assignees || [];
+
+      if (assignees.length === 0) {
+        decisions.push(rule.action);
+      }
+      continue;
     }
   }
 

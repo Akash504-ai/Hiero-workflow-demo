@@ -1,8 +1,7 @@
 /**
  * ruleEngine.js
  *
- * This module is responsible for evaluating incoming GitHub events against
- * a set of configured rules and determining which actions should be executed.
+ * This module is responsible for evaluating incoming GitHub events against a set of configured rules and determining which actions should be executed.
  *
  * It acts as the "decision layer" of the system.
  *

@@ -5,12 +5,12 @@ dotenv.config();
 
 const DRY_RUN = process.env.DRY_RUN === "true";
 
-// 🔐 GitHub client
+//  GitHub client
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-// 🎯 Main executor
+//  Main executor
 export async function executeActions(actions, event) {
   const context = buildContext(event);
 
@@ -23,7 +23,7 @@ export async function executeActions(actions, event) {
   }
 }
 
-// 🧠 Build normalized context (clean + correct)
+//  Build normalized context (clean + correct)
 function buildContext(event) {
   const fullName = event.repository?.full_name || "";
   const [owner, repo] = fullName.split("/");
@@ -36,7 +36,7 @@ function buildContext(event) {
   };
 }
 
-// 🔀 Action router
+//  Action router
 async function dispatchAction(action, context) {
   switch (action) {
     case "comment_welcome":
@@ -50,7 +50,7 @@ async function dispatchAction(action, context) {
   }
 }
 
-// 💬 Comment action (REAL API)
+//  Comment action (REAL API)
 async function commentWelcome(context) {
   const message = `👋 Welcome @${context.author}! Thanks for your contribution.`;
 
@@ -71,7 +71,7 @@ async function commentWelcome(context) {
   });
 }
 
-// 👥 Assign reviewer (REAL API)
+//  Assign reviewer (REAL API)
 async function assignDefaultReviewer(context) {
   const reviewer = context.owner;
 

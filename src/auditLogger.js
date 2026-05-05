@@ -1,21 +1,22 @@
 import fs from "fs";
 
-const LOG_FILE = "audit.log"; // later: replace with DB or external logging system
+const LOG_FILE = "audit.log";
 
+// 🎯 Main logger
 export function logDecision(event, actions) {
   const logEntry = buildLogEntry(event, actions);
 
-  // 🖥️ Console output (developer visibility)
   console.log("📜 AUDIT LOG");
   console.log(logEntry);
 
-  // 💾 Persist to file (production habit)
   persistLog(logEntry);
 }
 
-// 🧠 Build structured log object
+// 🧠 Build structured log
 function buildLogEntry(event, actions) {
   return {
+    id: generateLogId(), // 🔥 unique log id (important)
+
     event: "pull_request.opened",
 
     repository: {
@@ -28,8 +29,8 @@ function buildLogEntry(event, actions) {
     },
 
     context: {
-      pr_number: event.pull_request?.number || null,
-      has_assignees: event.pull_request?.assignees?.length > 0,
+      pr_number: event.pull_request?.number ?? "N/A", // ✅ better fallback
+      has_assignees: (event.pull_request?.assignees?.length || 0) > 0,
     },
 
     decision: {
@@ -45,16 +46,21 @@ function buildLogEntry(event, actions) {
   };
 }
 
-// 🧠 Explain WHY decisions happened (very important signal)
+// 🧠 Better reasoning (this is a key improvement)
 function deriveReason(actions) {
   if (!actions || actions.length === 0) {
     return "no rules matched";
   }
 
-  return "matched configured rules";
+  return `matched rules: ${actions.join(", ")}`;
 }
 
-// 💾 Persist logs (simple file append)
+// 🆔 Generate unique log id
+function generateLogId() {
+  return `log_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+}
+
+// 💾 Persist log
 function persistLog(logEntry) {
   try {
     fs.appendFileSync(LOG_FILE, JSON.stringify(logEntry) + "\n");

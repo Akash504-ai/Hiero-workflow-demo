@@ -177,8 +177,22 @@ A demonstration of the system includes:
 - Automatic comment on a real GitHub pull request
 - Audit log generation
 
-Demo Video:
+### 🎥 Video Demo
 (Add your video link here)
+
+---
+
+### 📸 Demo Walkthrough
+
+### PR before img
+
+### First terminal img 
+
+### second terminal img
+
+### First termianl img anain
+
+### PR screen after img
 
 ### Repository Used for Demo
 

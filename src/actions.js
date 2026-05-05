@@ -1,3 +1,26 @@
+/**
+ * actions.js
+ *
+ * This module is responsible for executing actions determined by the rule engine.
+ * It acts as the "execution layer" of the system, taking decisions (e.g., comment on PR,
+ * assign reviewer) and performing them using the GitHub API.
+ *
+ * Key Responsibilities:
+ * - Normalize incoming event data into a consistent context object
+ * - Route actions to appropriate handlers
+ * - Execute actions via GitHub API (or simulate in dry-run mode)
+ * - Enforce safety constraints (e.g., prevent assigning PR author as reviewer)
+ * - Handle errors gracefully to ensure system reliability
+ *
+ * Supported Actions:
+ * - comment_welcome → posts a welcome comment on pull requests
+ * - assign_default_reviewer → assigns a reviewer to the pull request
+ *
+ * Modes:
+ * - DRY_RUN=true  → simulate actions (no API calls)
+ * - DRY_RUN=false → execute real GitHub API actions
+ */
+
 import dotenv from "dotenv";
 import { Octokit } from "@octokit/rest";
 
@@ -5,12 +28,16 @@ dotenv.config();
 
 const DRY_RUN = process.env.DRY_RUN === "true";
 
-//  GitHub client
+// GitHub API client
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
-//  Main executor
+/**
+ * Main entry point for executing actions
+ * @param {string[]} actions - List of actions from rule engine
+ * @param {object} event - GitHub webhook event payload
+ */
 export async function executeActions(actions, event) {
   const context = buildContext(event);
 
@@ -23,7 +50,10 @@ export async function executeActions(actions, event) {
   }
 }
 
-//  Build normalized context (clean + correct)
+/**
+ * Builds a normalized context object from raw GitHub event
+ * This ensures consistency across all actions
+ */
 function buildContext(event) {
   const fullName = event.repository?.full_name || "";
   const [owner, repo] = fullName.split("/");
@@ -36,7 +66,9 @@ function buildContext(event) {
   };
 }
 
-//  Action router
+/**
+ * Routes actions to their respective handlers
+ */
 async function dispatchAction(action, context) {
   switch (action) {
     case "comment_welcome":
@@ -50,13 +82,15 @@ async function dispatchAction(action, context) {
   }
 }
 
-//  Comment action (REAL API)
+/**
+ * Action: Post welcome comment on pull request
+ */
 async function commentWelcome(context) {
   const message = `👋 Welcome @${context.author}! Thanks for your contribution.`;
 
   if (DRY_RUN) {
     console.log(
-      `🧪 [DRY RUN] Comment on PR #${context.prNumber}: "${message}"`,
+      `🧪 [DRY RUN] Comment on PR #${context.prNumber}: "${message}"`
     );
     return;
   }
@@ -71,21 +105,23 @@ async function commentWelcome(context) {
   });
 }
 
-//  Assign reviewer (REAL API)
+/**
+ * Action: Assign reviewer to pull request
+ */
 async function assignDefaultReviewer(context) {
   const reviewer = context.owner;
 
-  // ❗ Prevent assigning PR author as reviewer
+  // Safety check: prevent assigning PR author as reviewer
   if (reviewer === context.author) {
     console.log(
-      "⚠️ Skipping reviewer assignment (author cannot review their own PR)",
+      "⚠️ Skipping reviewer assignment (author cannot review their own PR)"
     );
     return;
   }
 
   if (DRY_RUN) {
     console.log(
-      `🧪 [DRY RUN] Assign reviewer "${reviewer}" to PR #${context.prNumber}`,
+      `🧪 [DRY RUN] Assign reviewer "${reviewer}" to PR #${context.prNumber}`
     );
     return;
   }

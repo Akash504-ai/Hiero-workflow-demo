@@ -1,9 +1,7 @@
 /**
  * auditLogger.js
  *
- * This module is responsible for capturing and persisting audit logs for all
- * decisions made by the system. It provides transparency, traceability, and
- * observability into how rules are evaluated and actions are executed.
+ * This module is responsible for capturing and persisting audit logs for all decisions made by the system. It provides transparency, traceability, and observability into how rules are evaluated and actions are executed.
  *
  * Key Responsibilities:
  * - Generate structured log entries for each event processed

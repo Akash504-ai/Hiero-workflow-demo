@@ -19,18 +19,8 @@ The system demonstrates a scalable architecture where repository events are proc
 
 ## Architecture
 
-The system follows a modular, event-driven design:
-GitHub Event (Pull Request)
-↓
-Webhook Handler
-↓
-Configuration Loader (YAML)
-↓
-Rule Engine
-↓
-Action Executor (GitHub API)
-↓
-Audit Logger
+<img width="202" height="571" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/8ced3be5-54d9-4ff5-a74a-22e171cbc127" />
+
 
 
 ---

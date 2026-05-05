@@ -134,16 +134,21 @@ Akash504-ai/Hiero-workflow-demo
 npm install
 ```
 
-2. Configure environment variables
+### 2. Configure environment variables
 
 Create a .env file:
-
+```yaml
 GITHUB_TOKEN=your_personal_access_token
 DRY_RUN=false
+```
 
-3. Start the server
+### 3. Start the server
+
+```bash
 npm run dev
-4. Trigger an event
+```
+
+### 4. Trigger an event
 
 Use PowerShell or any HTTP client:
 

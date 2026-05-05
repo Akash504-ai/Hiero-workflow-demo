@@ -38,11 +38,11 @@ const LOG_FILE = "audit.log";
 export function logDecision(event, actions) {
   const logEntry = buildLogEntry(event, actions);
 
-  // 🖥️ Console output (developer visibility)
+  // Console output (developer visibility)
   console.log("📜 AUDIT LOG");
   console.log(logEntry);
 
-  // 💾 Persist to file
+  // Persist to file
   persistLog(logEntry);
 }
 

@@ -15,6 +15,16 @@ The system demonstrates a scalable architecture where repository events are proc
 
 ---
 
+## Design Highlights
+
+- **Config-driven automation**: Behavior is defined via external YAML rules, enabling per-repository customization.
+- **Separation of concerns**: Clear boundaries between ingestion, decision-making, and execution layers.
+- **Safety-first execution**: Built-in checks prevent unsafe or invalid GitHub actions.
+- **Auditability**: Every decision and action is logged with structured metadata.
+- **Scalability-ready architecture**: Designed to evolve into a distributed system using queues and worker-based processing.
+
+---
+
 ## Architecture
 
 ```mermaid

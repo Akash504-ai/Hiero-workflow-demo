@@ -1,6 +1,6 @@
 # Hiero Workflow Automation Prototype
  
-## Overview
+## Overview 
 
 This project is a prototype of a configurable automation system for GitHub repository workflows. It is designed to reduce maintainer overhead by automating repetitive tasks such as contributor onboarding, pull request handling, and workflow enforcement.
 

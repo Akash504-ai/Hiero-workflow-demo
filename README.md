@@ -121,9 +121,7 @@ Demo Video:
 
 ### Repository Used for Demo
 
-This prototype was tested on:
-
-Akash504-ai/Hiero-workflow-demo
+This prototype was tested on: ***Akash504-ai/Hiero-workflow-demo***
 
 
 ## How to Run

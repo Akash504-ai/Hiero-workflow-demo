@@ -93,9 +93,9 @@ O2 --> O3
 ```
 
 
+**Note:** The current implementation demonstrates a simplified single-service prototype. The architecture diagram illustrates a production-ready, scalable design intended for multi-repository environments.
 
 ---
-
 
 ### Components
 
